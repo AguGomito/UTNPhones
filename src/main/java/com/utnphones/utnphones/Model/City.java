@@ -1,11 +1,13 @@
 package com.utnphones.utnphones.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,9 +27,12 @@ public class City {
     @Column(name = "prefix")
     private String prefix;
 
-    @JoinColumn(foreignKey = @ForeignKey(name = "province_id"), name = "province_id", referencedColumnName = "province_id")
+    @JoinColumn(name = "province_id", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     private Province province;
+
+    @OneToMany(mappedBy = "city")
+    List <User> userList;
 
 }
