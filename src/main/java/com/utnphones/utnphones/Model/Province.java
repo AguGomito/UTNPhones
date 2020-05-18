@@ -25,5 +25,4 @@ public class Province {
 
     @OneToMany(mappedBy = "province")
     private List<City> cities;
-
 }
