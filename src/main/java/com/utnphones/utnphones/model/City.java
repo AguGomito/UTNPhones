@@ -1,7 +1,6 @@
-package com.utnphones.utnphones.Model;
+package com.utnphones.utnphones.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +32,12 @@ public class City {
     private Province province;
 
     @OneToMany(mappedBy = "city")
-    List <User> userList;
+    private List <User> userList;
+
+    @OneToOne(mappedBy = "issuerCity")
+    private Rate issuerRate;
+
+    @OneToOne(mappedBy = "receiverCity")
+    private Rate receiverRate;
 
 }

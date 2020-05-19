@@ -5,47 +5,47 @@ USE utnphones;
 
 CREATE TABLE IF NOT EXISTS Provinces (
     province_id int AUTO_INCREMENT,
-    name varchar (250),
+    name varchar (250) not null,
     CONSTRAINT pk_provinces PRIMARY KEY (province_id));
 
 CREATE TABLE IF NOT EXISTS Cities (
     city_id int AUTO_INCREMENT,
-    city_name varchar(250),
-    province_id int,
-    prefix varchar(10),
+    city_name varchar(250) not null unique,
+    province_id int not null,
+    prefix varchar(10) not null,
     CONSTRAINT pk_cities PRIMARY KEY (city_id),
     CONSTRAINT fk_provinces FOREIGN KEY (province_id) REFERENCES Provinces (province_id));
 
-CREATE TABLE IF NOT EXISTS Users( 
-username varchar(50),
-password varchar(50),
-name varchar(250),
-lastname varchar(250),
-user_type int, /*1 cliente 2 empleado*/
-is_active int,
-dni varchar(10),
-user_id int auto_increment,
-city_id int,
-province_id int,
-CONSTRAINT pk_users PRIMARY KEY (user_id),
-CONSTRAINT fk_Usrcities FOREIGN KEY (city_id) REFERENCES Cities (city_id),
-CONSTRAINT fk_Usrprovinces FOREIGN KEY (province_id) REFERENCES Provinces (province_id));
+CREATE TABLE IF NOT EXISTS Users (
+    username varchar(50) not null unique,
+    password varchar(50) not null,
+    name varchar(250) not null,
+    lastname varchar(250) not null,
+    user_type int not null default 0, /*1 cliente 2 empleado*/
+    is_active int not null,
+    dni varchar(10) not null unique,
+    user_id int auto_increment,
+    city_id int not null,
+    CONSTRAINT pk_users PRIMARY KEY (user_id),
+    CONSTRAINT fk_Usrcities FOREIGN KEY (city_id) REFERENCES Cities (city_id));
 
-CREATE TABLE IF NOT EXISTS PhoneLines(line_id int auto_increment,
-phone_number varchar(50),
-line_type int, /*1 movil 2 residencial*/
-state BOOLEAN,
-user_id int,
-CONSTRAINT pk_PhoneLines PRIMARY KEY (line_id),
-CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES Users (user_id));
+CREATE TABLE IF NOT EXISTS PhoneLines (
+    line_id int auto_increment,
+    phone_number varchar(50) not null unique,
+    line_type int not null, /*1 movil 2 residencial*/
+    state BOOLEAN not null,
+    user_id int not null,
+    CONSTRAINT pk_PhoneLines PRIMARY KEY (line_id),
+    CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES Users (user_id));
 
-CREATE TABLE IF NOT EXISTS Rates(rate_id int AUTO_INCREMENT,
-issuer_city_id int,
-receiver_city_id int,
-cost_minute float,
-CONSTRAINT pk_rates PRIMARY KEY (rate_id),
-CONSTRAINT fk_citiesIss FOREIGN KEY (issuer_city_id) REFERENCES Cities (city_id),
-CONSTRAINT fk_citiesRec FOREIGN KEY (receiver_city_id) REFERENCES Cities (city_id));
+CREATE TABLE IF NOT EXISTS Rates (
+    rate_id int AUTO_INCREMENT,
+    issuer_city_id int not null,
+    receiver_city_id int not null,
+    cost_minute float not null,
+    CONSTRAINT pk_rates PRIMARY KEY (rate_id),
+    CONSTRAINT fk_citiesIss FOREIGN KEY (issuer_city_id) REFERENCES Cities (city_id),
+    CONSTRAINT fk_citiesRec FOREIGN KEY (receiver_city_id) REFERENCES Cities (city_id));
 
 CREATE TABLE IF NOT EXISTS Invoices(invoice_id int AUTO_INCREMENT,
 line_id int,
@@ -82,6 +82,8 @@ INSERT INTO provinces VALUES (4, "Cordoba");
 INSERT INTO provinces VALUES (5, "La Pampa");
 INSERT INTO provinces VALUES (6, "Rio Negro");
 
+INSERT INTO cities VALUES (1, "Mar del Plata", 1, "0223");
+INSERT INTO cities VALUES (1, "Mar del Plata", 1, "0223");
 INSERT INTO cities VALUES (1, "Mar del Plata", 1, "0223");
 
 

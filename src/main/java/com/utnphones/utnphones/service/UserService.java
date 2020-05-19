@@ -1,7 +1,7 @@
-package com.utnphones.utnphones.Service;
+package com.utnphones.utnphones.service;
 
-import com.utnphones.utnphones.Model.User;
-import com.utnphones.utnphones.Repository.UserRepository;
+import com.utnphones.utnphones.model.User;
+import com.utnphones.utnphones.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

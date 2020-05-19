@@ -1,7 +1,7 @@
-package com.utnphones.utnphones.Controller;
+package com.utnphones.utnphones.controller;
 
-import com.utnphones.utnphones.Model.Province;
-import com.utnphones.utnphones.Service.ProvinceService;
+import com.utnphones.utnphones.model.Province;
+import com.utnphones.utnphones.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

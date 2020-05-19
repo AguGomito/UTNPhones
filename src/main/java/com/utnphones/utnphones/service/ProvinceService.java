@@ -1,7 +1,7 @@
-package com.utnphones.utnphones.Service;
+package com.utnphones.utnphones.service;
 
-import com.utnphones.utnphones.Model.Province;
-import com.utnphones.utnphones.Repository.ProvinceRepository;
+import com.utnphones.utnphones.model.Province;
+import com.utnphones.utnphones.repository.ProvinceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

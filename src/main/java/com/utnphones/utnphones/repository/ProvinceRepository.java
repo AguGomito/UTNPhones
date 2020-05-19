@@ -1,6 +1,6 @@
-package com.utnphones.utnphones.Repository;
+package com.utnphones.utnphones.repository;
 
-import com.utnphones.utnphones.Model.Province;
+import com.utnphones.utnphones.model.Province;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

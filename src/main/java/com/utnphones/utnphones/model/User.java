@@ -1,4 +1,4 @@
-package com.utnphones.utnphones.Model;
+package com.utnphones.utnphones.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -45,5 +46,8 @@ public class User {
     @JoinColumn(name = "city_id", nullable = false)
     @JsonBackReference
     private City city;
+
+    @OneToMany(mappedBy = "user")
+    private List <PhoneLine> phoneLines;
 
 }

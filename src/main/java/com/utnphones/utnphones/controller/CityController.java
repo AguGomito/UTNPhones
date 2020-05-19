@@ -1,7 +1,7 @@
-package com.utnphones.utnphones.Controller;
+package com.utnphones.utnphones.controller;
 
-import com.utnphones.utnphones.Model.City;
-import com.utnphones.utnphones.Service.CityService;
+import com.utnphones.utnphones.model.City;
+import com.utnphones.utnphones.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
