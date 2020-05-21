@@ -34,10 +34,4 @@ public class City {
     @OneToMany(mappedBy = "city")
     private List <User> userList;
 
-    @OneToOne(mappedBy = "issuerCity")
-    private Rate issuerRate;
-
-    @OneToOne(mappedBy = "receiverCity")
-    private Rate receiverRate;
-
 }

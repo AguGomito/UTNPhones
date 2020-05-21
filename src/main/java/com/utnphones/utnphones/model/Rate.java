@@ -1,6 +1,7 @@
 package com.utnphones.utnphones.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,15 +20,14 @@ public class Rate {
     @Column(name = "rate_id")
     private Integer id;
 
-    @JoinColumn(name = "city_id", nullable = false, insertable = false, updatable = false)
-    @OneToOne(fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JoinColumn(name = "issuer_city_id")
+    @ManyToOne(fetch = FetchType.EAGER)
     private City issuerCity;
 
-    @JoinColumn(name = "city_id", nullable = false, insertable = false, updatable = false)
-    @OneToOne(fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JoinColumn(name = "receiver_city_id")
+    @ManyToOne(fetch = FetchType.EAGER)
     private City receiverCity;
 
+    @Column(name = "cost_minute")
     private Float minuteCost;
 }
