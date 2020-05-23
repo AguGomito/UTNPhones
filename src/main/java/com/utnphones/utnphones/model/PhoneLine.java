@@ -27,7 +27,7 @@ public class PhoneLine {
     private Integer lineType;
 
     @Column(name = "state")
-    private Boolean state;
+    private Integer state;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)

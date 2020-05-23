@@ -16,12 +16,12 @@ import java.util.List;
 public class City {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "city_id")
     private Integer id;
 
     @Column(name = "city_name", unique = true)
-    private String city;
+    private String name;
 
     @Column(name = "prefix")
     private String prefix;

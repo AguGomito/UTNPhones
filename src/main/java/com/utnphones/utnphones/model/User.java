@@ -17,12 +17,12 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
 
     @Column(name = "dni", unique = true)
-    private String DNI;
+    private String dni;
 
     @Column(name = "username", unique = true)
     private String username;
@@ -42,8 +42,8 @@ public class User {
     @Column(name = "is_active")
     private Integer isActive;
 
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     private City city;
 

@@ -1,5 +1,6 @@
 package com.utnphones.utnphones.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class Call {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rate_id")
+    @JsonBackReference
     private Rate rate;
 
     @Column(name = "call_price")
@@ -42,6 +44,7 @@ public class Call {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "invoice_id")
+    @JsonBackReference
     private Invoice invoice;
 
 }
