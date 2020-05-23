@@ -1,7 +1,7 @@
 package com.utnphones.utnphones.service;
 
 import com.utnphones.utnphones.model.Invoice;
-import com.utnphones.utnphones.repository.InvoiceRepository;
+import com.utnphones.utnphones.repository.IInvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class InvoiceService {
 
-    private final InvoiceRepository invoiceRepository;
+    private final IInvoiceRepository invoiceRepository;
 
     @Autowired
-    public InvoiceService(InvoiceRepository invoiceRepository) {
+    public InvoiceService(IInvoiceRepository invoiceRepository) {
         this.invoiceRepository = invoiceRepository;
     }
 

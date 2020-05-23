@@ -1,7 +1,7 @@
 package com.utnphones.utnphones.service;
 
 import com.utnphones.utnphones.model.User;
-import com.utnphones.utnphones.repository.UserRepository;
+import com.utnphones.utnphones.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final IUserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

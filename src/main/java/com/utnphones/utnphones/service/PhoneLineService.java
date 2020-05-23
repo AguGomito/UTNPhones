@@ -1,7 +1,7 @@
 package com.utnphones.utnphones.service;
 
 import com.utnphones.utnphones.model.PhoneLine;
-import com.utnphones.utnphones.repository.PhoneLineRepository;
+import com.utnphones.utnphones.repository.IPhoneLineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class PhoneLineService {
 
-    private final PhoneLineRepository phoneLineRepository;
+    private final IPhoneLineRepository phoneLineRepository;
 
     @Autowired
-    public PhoneLineService(PhoneLineRepository phoneLineRepository) {
+    public PhoneLineService(IPhoneLineRepository phoneLineRepository) {
         this.phoneLineRepository = phoneLineRepository;
     }
 
