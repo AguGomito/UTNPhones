@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS Users (
     CONSTRAINT fk_Usrcities FOREIGN KEY (city_id) REFERENCES Cities (city_id)
 );
 
-
 DROP TABLE phonelines;
 CREATE TABLE IF NOT EXISTS PhoneLines (
     line_id int auto_increment,
@@ -45,7 +44,6 @@ CREATE TABLE IF NOT EXISTS PhoneLines (
     CONSTRAINT pk_PhoneLines PRIMARY KEY (line_id),
     CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES Users (user_id)
 );
-
 
 DROP TABLE rates;
 CREATE TABLE IF NOT EXISTS Rates (

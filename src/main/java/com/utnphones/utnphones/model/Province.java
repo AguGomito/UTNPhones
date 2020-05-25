@@ -1,5 +1,6 @@
 package com.utnphones.utnphones.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,6 @@ public class Province {
     private String name;
 
     @OneToMany(mappedBy = "province")
+    @JsonBackReference
     private List <City> cities;
 }

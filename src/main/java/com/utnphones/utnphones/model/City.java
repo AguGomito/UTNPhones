@@ -28,10 +28,10 @@ public class City {
 
     @JoinColumn(name = "province_id", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonBackReference
     private Province province;
 
     @OneToMany(mappedBy = "city")
+    @JsonBackReference
     private List <User> userList;
 
 }
