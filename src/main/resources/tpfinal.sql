@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Users (
     name varchar(250) not null,
     lastname varchar(250) not null,
     user_type int not null, /*1 cliente 2 empleado*/
-    is_active int default 1,
+    is_active int default '1',
     dni varchar(10) not null unique,
     city_id int not null,
     CONSTRAINT pk_users PRIMARY KEY (user_id),
@@ -37,9 +37,9 @@ CREATE TABLE IF NOT EXISTS Users (
 DROP TABLE phonelines;
 CREATE TABLE IF NOT EXISTS PhoneLines (
     line_id int auto_increment,
-    phone_number varchar(50) not null,
-    line_type int default 1, /*1 movil 2 residencial*/
-    state INT default 1,
+    phone_number varchar(50) not null unique,
+    line_type int default '1', /*1 movil 2 residencial*/
+    state INT default '1',
     user_id int not null,
     CONSTRAINT pk_PhoneLines PRIMARY KEY (line_id),
     CONSTRAINT fk_users FOREIGN KEY (user_id) REFERENCES Users (user_id)

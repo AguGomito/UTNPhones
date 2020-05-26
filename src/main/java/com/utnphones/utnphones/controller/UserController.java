@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sound.sampled.Line;
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,14 +20,14 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
-    private final CallController callController;
-    private final PhoneLineController phoneLineController;
+//    private final CallController callController;
+//    private final PhoneLineController phoneLineController;
 
     @Autowired
-    public UserController(UserService userService, CallController callController, PhoneLineController phoneLineController) {
+    public UserController(UserService userService) { //, CallController callController, PhoneLineController phoneLineController) {
         this.userService = userService;
-        this.callController = callController;
-        this.phoneLineController = phoneLineController;
+//        this.callController = callController;
+//        this.phoneLineController = phoneLineController;
     }
 
     @PostMapping("/")
@@ -46,8 +47,14 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getById (@PathVariable final Integer id) throws UserDoNotExistsException {
-        return userService.getById(id);
+    public Optional <User> getById (@PathVariable final Integer id) {
+        Optional <User> aux = null;
+        try {
+            aux = userService.getById(id);
+        } catch (UserDoNotExistsException e) {
+            e.printStackTrace();
+        }
+        return aux;
     }
 
     @DeleteMapping("/{id}")

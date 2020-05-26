@@ -23,7 +23,7 @@ public class PhoneLine {
     @Column(name = "phone_number", unique = true)
     private String phoneNumber;
 
-    @Column(name = "line_type", unique = true)
+    @Column(name = "line_type")
     private Integer lineType;
 
     @Column(name = "state")
